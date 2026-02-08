@@ -1,0 +1,40 @@
+{
+  "input": {
+    "tipo": "arquivo",
+    "arquivo": "uploads/dados.xlsx"
+  },
+
+  "filters": {
+    "column_index": 0,
+    "allowed_values": [
+      "STATUS A",
+      "STATUS B",
+      "STATUS C"
+    ]
+  },
+
+  "select_columns": {
+    "output_columns": {
+      "COLUNA_1_RENOMEADA": 2,
+      "COLUNA_2_RENOMEADA": 5,
+      "QUALQUER_NOME": 7
+    }
+  },
+
+  "fixed_columns": {
+    "ORIGEM_DADOS": "IMPORTACAO_EXCEL",
+    "VERSAO_PIPELINE": "v1"
+  },
+
+  "split": {
+    "by_column": "QUALQUER_NOME"
+  },
+
+  "output": {
+    "tipo": "ambos",
+    "pasta_saida": "output",
+    "prefixo_arquivo": "EXPORT",
+    "engine_url": "sqlite:///dados.db",
+    "tabela_destino": "tabela_tratada"
+  }
+}
