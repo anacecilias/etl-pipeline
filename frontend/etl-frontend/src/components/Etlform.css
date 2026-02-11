@@ -1,0 +1,339 @@
+:root {
+  --bg-dark: #020617;
+  --bg-dark-2: #0b1020;
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.12);
+  --border: rgba(255, 255, 255, 0.18);
+  --primary: #6366f1;
+  --success: #22c55e;
+  --warning: #facc15;
+  --error: #ef4444;
+  --text: #ffffff;
+  --text-muted: #94a3b8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Nunito', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background: radial-gradient(800px circle at 10% 20%, rgba(99, 102, 241, 0.28), transparent 45%),
+    radial-gradient(700px circle at 90% 80%, rgba(139, 92, 246, 0.28), transparent 45%),
+    linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark) 35%, var(--bg-dark-2) 100%);
+  color: var(--text);
+}
+
+.box {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 60px rgba(2, 6, 23, 0.6);
+}
+
+.top-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.top-header span {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.top-header header {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.input-field .bx-envelope,
+.input-field .bx-user,
+.input-field .bx-lock-alt {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-field input {
+  width: 100%;
+  height: 3rem;
+  padding-left: 2.75rem;
+  padding-right: 3.5rem;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  color: var(--text);
+  font-size: 0.9375rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-field input::placeholder {
+  color: var(--text-muted);
+}
+
+.input-field input:focus {
+  background: var(--glass-hover);
+  border-color: var(--primary);
+}
+
+.eye-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  z-index: 10;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.eye-btn .bx {
+  font-size: 1.125rem;
+  pointer-events: none;
+}
+
+.eye-btn:hover {
+  color: var(--primary);
+}
+
+.strength-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.bar-fill {
+  flex: 1;
+  height: 0.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+.strength-bar.level-1 .bar-fill::after {
+  width: 33%;
+  background: var(--error);
+}
+
+.strength-bar.level-2 .bar-fill::after {
+  width: 66%;
+  background: var(--warning);
+}
+
+.strength-bar.level-3 .bar-fill::after {
+  width: 100%;
+  background: var(--success);
+}
+
+.strength-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 3.5rem;
+  text-align: right;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 3rem;
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.divider {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.divider span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.social-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-btn {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.footer-link {
+  text-align: center;
+}
+
+.toggle-link {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.toggle-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .top-header header {
+    font-size: 1.5rem;
+  }
+
+  .input-field input {
+    height: 2.875rem;
+    font-size: 0.875rem;
+  }
+
+  .submit-btn {
+    height: 2.875rem;
+  }
+
+  .social-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* DESABILITA O BOTÃO AUTOMÁTICO DO NAVEGADOR */
+.input-field input[type="password"]::-ms-reveal,
+.input-field input[type="password"]::-ms-clear {
+  display: none;
+}
+
+.input-field input[type="password"]::-webkit-contacts-auto-fill-button,
+.input-field input[type="password"]::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  height: 0;
+  width: 0;
+  margin: 0;
+}
+
+/* REMOVE BORDA/OUTLINE DO NAVEGADOR */
+button:focus,
+button:active,
+input:focus,
+input:active,
+.eye-btn:focus,
+.eye-btn:active,
+.submit-btn:focus,
+.submit-btn:active,
+.social-btn:focus,
+.social-btn:active,
+.toggle-link:focus,
+.toggle-link:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: none !important;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
